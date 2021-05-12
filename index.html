@@ -1,39 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link  rel="stylesheet" href="./assets/css/style.css" />
-    <title>Code Quiz</title>
-</head>
-<body>
-    
-    <header class="quiz-head" id="quiz-info">
-        <h1>Java Quiz</h1>
-        <li>
-            <ul class="head-spec" id="Start"><button type="button" class="start" id ="Start">Start</button></ul>
-            <ul class="head-spec" id="High Scores">High Scores:</ul>
-            <ul class="head-spec" id="Time">Time:</ul>
-        </li>
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="./assets/css/style.css" />
+        <title>Code Quiz</title>
+    </head>
+    <body>
+        <header class="quiz-head" id="quiz-info">
+            <h1>Java Quiz</h1>
+            <li>
+                <ul class="head-spec" id="Start">
+                    <button type="button" class="start" id="Start">
+                        Start
+                    </button>
+                </ul>
+                <ul class="head-spec" id="Score">
+                    Score:
+                </ul>
+                <ul class="head-spec" id="Time">
+                    Time:
+                </ul>
+            </li>
+        </header>
+        <section class="questions" id="q's">
+            <h2 id="question">Example Question</h2>
+            <div class="answers" id="answer">
+                <button type="button" class="clickme" id="answer1">1.</button>
+                <button type="button" class="clickme" id="answer2">2.</button>
+                <button type="button" class="clickme" id="answer3">3.</button>
+                <button type="button" class="clickme" id="answer4">4.</button>
+            </div>
+        </section>
 
-    </header>
-    <section class="questions" id="q's">
-        <h2>Example Question</h2>
-        <div class="answers" id="answer">
-            <button type="button" class="clickme">1.    Answer</button>
-             <button type="button" class="clickme">2.   Answer</button>
-             <button type="button" class="clickme">3.   Answer</button>
-             <button type="button" class="clickme">4.   Answer</button>
-        </div>
-        
-
-    </section>
-    <footer class="quiz-f" id="result">
-        <h3>Right/Wrong</h3>
-        
-    </footer>
-    <script src="./assets/js/quiz.js"></script>
-   
-</body>
+        <section id="highScore"></section>
+        <footer class="quiz-f" id="result">
+            
+        </footer>
+        <script src="./assets/js/quiz.js"></script>
+    </body>
 </html>
