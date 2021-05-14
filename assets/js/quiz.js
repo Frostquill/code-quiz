@@ -6,8 +6,11 @@ var answer2 = document.getElementById("answer2");
 var answer3 = document.getElementById("answer3");
 var answer4 = document.getElementById("answer4");
 var question = document.getElementById("question");
+var allButtons = document.getElementsByClassName("clickme");
+var scoreInput = document.getElementById("highScore");
 
 var questions = [
+    
     {
         q: "Javascript identifiers are case sensitive.",
         choiceA: "true",
@@ -50,9 +53,9 @@ var questions = [
     },
 ];
 
-var timeLeft = 80;
+var timeLeft = 40;
 var index = 0;
-var score = 0;
+var score2 = 0;
 
 function countdown() {
     confirm("Are you ready?");
@@ -76,7 +79,7 @@ function displayQuestion() {
     document.getElementById("answer2").innerHTML = questions[index].choiceB;
     document.getElementById("answer3").innerHTML = questions[index].choiceC;
     document.getElementById("answer4").innerHTML = questions[index].choiceD;
-    document.getElementById("Score").innerHTML = "Score: " + score;
+    document.getElementById("Score").innerHTML = "Score: " + score2;
 
     index++;
 };
@@ -85,36 +88,6 @@ var takeQuiz = function() {
    
     displayQuestion();
 };
-
-var allButtons = document.getElementsByClassName("clickme");
-var highScores = function() {
-    var scoreInput = document.getElementById("highScore");
-    
-    var scoreHead = document.createElement("h2");
-    scoreHead.textContent = "Input your High Score!";
-    scoreHead.setAttribute('style', 'margin:auto; width:100%; text-align:center; font-size:40px;');
-    scoreInput.appendChild(scoreHead);
-
-    var scores = document.createElement('div');
-    var listEl = document.createElement('ol');
-    var first = document.createElement('li');
-    var second = document.createElement('li');
-    var third = document.createElement('li');
-
-    first.textContent = "1";
-    second.textContent = "2";
-    third.textContent = "3";
-
-    scoreInput.appendChild(scores);
-    scores.appendChild(listEl);
-    listEl.appendChild(first);
-    listEl.appendChild(second);
-    listEl.appendChild(third);
-    
-
-
-
-}
 
 var removeQues = function() {
     document.getElementById("q's").style.display = "none";
@@ -131,7 +104,7 @@ for (var i = 0; i < allButtons.length; i++) {
         if (currentAnswer != userSelectedAnswer) {
             timeLeft = timeLeft - 10;
         }else {
-            score = score + 10;
+            score2 = score2 + 10;
         }
 
         if (index > questions.length - 1) {
@@ -146,6 +119,56 @@ for (var i = 0; i < allButtons.length; i++) {
     
     });
     
+};
+
+
+
+
+
+
+
+var highScores = function() {
+    
+    scoreInput.setAttribute('style', 'background-color:lightgrey;');
+    var scoreHead = document.createElement("h2");
+    scoreHead.textContent = "Input your High Score!";
+    scoreHead.setAttribute('style', 'margin:auto; width:100%; text-align:center; font-size:40px;');
+    scoreInput.appendChild(scoreHead);
+
+    var scores = document.createElement('div');
+    var listEl = document.createElement('ol');
+    listEl.setAttribute('style', 'display:flex; flex-direction:column; align-items:center; margin:0;');
+    scoreInput.appendChild(scores);
+    scores.appendChild(listEl);
+    
+    firstPlace();
+};
+
+
+
+var firstPlace = function() {
+    var first = document.createElement('li');
+    first.setAttribute('style', 'font-size:25px; margin-left:45%; padding-top:20px;  height:50px; list-style-type:decimal;')
+    first.setAttribute('id', 'first');
+    scoreInput.appendChild(first);
+    
+    
+   
+   
+
+   //debugger;
+    if ('first'.innerText === undefined ) {
+    alert("congrats on hitting first place!");
+    var initial = prompt('put in your initials!');
+    first = initial + '--' +  score2;
+    localStorage.setItem('score1', first);
+    
+   } else {
+    
+    }
+     var firstKey = localStorage.getItem('score1');
+    document.getElementById('first').innerText = firstKey;
+   
 }
 
 
